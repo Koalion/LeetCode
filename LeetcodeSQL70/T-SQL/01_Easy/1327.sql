@@ -84,6 +84,6 @@ SELECT
 FROM Orders o
 JOIN Products p
     ON o.product_id = p.product_id
-    AND LEFT(o.order_date,7) = '2020-02'
+    AND FORMAT(o.order_date,'yyyy-MM') = '2020-02'
 GROUP BY p.product_name
 HAVING SUM(o.unit) >= 100

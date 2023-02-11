@@ -45,12 +45,12 @@ Output:
 +----------+---------+-------------+----------------+--------------------+-----------------------+
 */
 SELECT
-    LEFT(trans_date, 7) AS month,
+    FORMAT(trans_date,'yyyy-MM') AS month,
     country,
     COUNT(id) AS trans_count,
     COUNT(CASE WHEN state = 'approved' THEN id END) AS approved_count,
     SUM(amount) AS trans_total_amount,
     COALESCE(SUM(CASE WHEN state = 'approved' THEN amount END), 0) AS approved_total_amount
 FROM Transactions t
-GROUP BY LEFT(trans_date, 7), country
+GROUP BY FORMAT(trans_date,'yyyy-MM'), country
 ORDER BY month

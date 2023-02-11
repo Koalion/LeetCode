@@ -105,7 +105,7 @@ GROUP BY u.name
     FROM MovieRating mr
     JOIN Movies m
         ON mr.movie_id = m.movie_id
-    WHERE LEFT(mr.created_at, 7) = '2020-02'
+    WHERE FORMAT(mr.created_at,'yyyy-MM') = '2020-02'
     GROUP BY m.title
 )
 SELECT

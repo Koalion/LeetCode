@@ -79,6 +79,7 @@ SELECT DISTINCT
 FROM TVProgram t
 JOIN Content c
     ON t.content_id = c.content_id
-    AND LEFT(t.program_date, 7) = '2020-06'
+    AND FORMAT(t.program_date,'yyyy-MM') = '2020-06'
+    
     AND c.kids_content = 'Y'
     AND c.content_type = 'Movies'
